@@ -1,0 +1,472 @@
+:root {
+  --mainBgColor: #C40D3D;
+  --bgPopup: #760925E5;
+  --textColor: #4E6372;
+  --btnColor: linear-gradient(180deg, #7A97AB 0%, #4E6372 100%);
+  --mainFont: "Ubuntu", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+p {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-size: 12px ;
+  line-height: 18px;
+  color: var(--textColor);
+}
+p:first-of-type {
+  margin-bottom: 10px;
+}
+p strong {
+  font-weight: bold;
+}
+li {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 200;
+  font-size: 14px ;
+  color: var(--textColor);
+}
+img {
+  width: 100%;
+}
+.trademark {
+  font-size: 10px;
+  font-weight: 400;
+  vertical-align: top;
+}
+body .bannerHolder .popup {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+body .bannerHolder.popupActive .popup {
+  pointer-events: auto;
+  opacity: 1 !important;
+  transition: opacity 0.3s ease-in-out;
+}
+body .bannerHolder.popupActive .mainBanner {
+  pointer-events: none;
+}
+.bannerHolder {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.bannerHolder .popup {
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.bannerHolder .popupBg {
+  position: absolute;
+  background: var(--bgPopup);
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+}
+.bannerHolder .popupRef {
+  position: relative;
+  z-index: 1000;
+  background: white;
+  width: calc(100% - 25px);
+  height: calc(100% - 120px);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bannerHolder .popupRef .cross {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bannerHolder .popupRef .cross:hover {
+  cursor: pointer;
+}
+.bannerHolder .popupRef .cross::before,
+.bannerHolder .popupRef .cross::after {
+  content: "";
+  background: #3f3f3f;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  border-radius: 25px;
+}
+.bannerHolder .popupRef .cross::before {
+  transform: rotate(135deg);
+}
+.bannerHolder .popupRef .cross::after {
+  transform: rotate(45deg);
+}
+.bannerHolder .popupRef .title {
+  color: var(--mainBgColor);
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+}
+.bannerHolder .popupRef .refLineSpacing {
+  display: block;
+  width: 50%;
+  background: black;
+  height: 1px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.bannerHolder .popupRef p {
+  text-align: left;
+  text-align: justify;
+}
+.bannerHolder .popupRef ul {
+  margin-left: 20px;
+}
+.bannerHolder .popupRef ul li {
+  text-align: left;
+  list-style: decimal;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+.bannerHolder .animationBull .bgBanner {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.bannerHolder .animationBull .bgBull {
+  position: absolute;
+  left: -500px;
+  width: 500px;
+  height: 630px;
+  object-fit: cover;
+}
+.bannerHolder .logoContainer {
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 112px;
+  top: -112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bannerHolder .logoContainer .logo {
+  position: absolute;
+  z-index: 101;
+  max-width: 148px;
+}
+.bannerHolder .logoContainer .logoBgCircle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  width: 362px;
+  height: 362px;
+  top: -252px;
+}
+.bannerHolder #mainBanner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.bannerHolder #mainBanner p {
+  font-size: 14px;
+  font-weight: 200;
+}
+.bannerHolder #mainBanner .mainApp {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(/images/bgRed.png);
+  width: 100%;
+  height: 100%;
+  left: 100%;
+}
+.bannerHolder #mainBanner .mainApp .textContainer {
+  position: absolute;
+  top: 100px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 10px;
+  min-width: 280px;
+}
+.bannerHolder #mainBanner .mainApp .btn {
+  position: absolute;
+  bottom: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--btnColor);
+  padding: 15px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.bannerHolder #mainBanner .mainApp .btn .btnText {
+  color: white;
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 16px ;
+}
+.bannerHolder #mainBanner .mainApp .btn:hover {
+  transform: scale(1.02);
+}
+.bannerHolder #mainBanner .mainApp .btn:hover .btnArrow {
+  right: 20px;
+}
+.bannerHolder #mainBanner .mainApp .btn .btnArrow {
+  position: absolute;
+  width: 0px;
+  height: 8px;
+  display: flex;
+  right: 22px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+.bannerHolder #mainBanner .mainApp .btn .btnArrow::before,
+.bannerHolder #mainBanner .mainApp .btn .btnArrow::after {
+  content: "";
+  background: white;
+  width: 10px;
+  height: 3px;
+  position: relative;
+  border-radius: 25px;
+  display: block;
+}
+.bannerHolder #mainBanner .mainApp .btn .btnArrow::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.bannerHolder #mainBanner .mainApp .btn .btnArrow::after {
+  transform: rotate(135deg);
+}
+.bannerHolder #mainBanner .mainApp .legend {
+  position: absolute;
+  bottom: 31px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.bannerHolder #mainBanner .mainApp .legend p {
+  font-size: 7px;
+  font-weight: 500;
+  line-height: 7px;
+  text-align: center;
+  color: white;
+}
+.bannerHolder #mainBanner .refContainer {
+  position: absolute;
+  bottom: -32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.bannerHolder #mainBanner .refContainer .btnRef {
+  position: absolute;
+  color: white;
+  font-family: var(--mainFont);
+  font-size: 8px;
+  background: #BDA763;
+  border-radius: 15px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  border: none;
+}
+.bannerHolder #mainBanner .refContainer .btnRef:hover {
+  cursor: pointer;
+  transform: scale(0.98);
+}
+.bannerHolder #mainBanner .gameContainer {
+  position: absolute;
+  top: 95px;
+  left: 100%;
+  width: 300px;
+}
+.bannerHolder #mainBanner .gameContainer .title {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.bannerHolder #mainBanner .gameContainer .subtitle {
+  color: white;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.1;
+  margin-bottom: 15px;
+}
+.bannerHolder #mainBanner .gameContainer .game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  min-width: 280px;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px 10px 30px 10px;
+}
+.bannerHolder #mainBanner .gameContainer .game .title {
+  color: var(--bgPopup);
+  font-weight: 800;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+.bannerHolder #mainBanner .borderParent {
+  z-index: 15;
+  border: 8px solid #C40D3D;
+  z-index: 11;
+  overflow: visible;
+  width: 222px;
+  height: 222px;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.bannerHolder #mainBanner .borderParent::before {
+  content: '';
+  position: absolute;
+  top: -21px;
+  left: -21px;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 8px solid white;
+  z-index: -1;
+}
+.bannerHolder #mainBanner .borderParent::after {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 238px;
+  height: 238px;
+  border-radius: 50%;
+  border: 10px solid #760925;
+  z-index: -1;
+}
+.bannerHolder #mainBanner .parent {
+  background-image: url(/images/characters.png);
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  padding: 10px;
+  overflow: hidden;
+  width: 222px;
+  height: 222px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.bannerHolder #mainBanner .child {
+  position: relative;
+  margin: 25px;
+  border-radius: 50%;
+}
+.bannerHolder #mainBanner #cible {
+  z-index: 10 !important;
+  position: absolute;
+  width: 56px;
+  height: 56px;
+}
+.bannerHolder #mainBanner #cible svg {
+  width: 100%;
+  height: 100%;
+}
+.bannerHolder #mainBanner .target {
+  background-image: url(/images/target.png);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  pointer-events: none;
+  background-size: contain;
+}
+.bannerHolder #mainBanner .videoContainer {
+  position: absolute;
+  top: 100px;
+  left: 100%;
+  width: 300px;
+  padding: 0 10px;
+}
+.bannerHolder #mainBanner .videoContainer .videoHolder {
+  background: white;
+  padding: 15px 0;
+  border-radius: 10px;
+  margin-bottom: 45px;
+}
+.bannerHolder #mainBanner .videoContainer .videoHolder video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bannerHolder #mainBanner .videoContainer p.title {
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.bannerHolder #mainBanner .lastText {
+  position: absolute;
+  top: 100px;
+  left: 100%;
+  background-color: white;
+  padding: 15px 12px;
+  border-radius: 15px;
+  margin: 10px;
+  min-width: 280px;
+}
+.bannerHolder #mainBanner .lastText p {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.bannerHolder #mainBanner .lastText p:last-of-type {
+  margin-bottom: 0;
+}
