@@ -1,11 +1,11 @@
 window.addEventListener('load', function() {
 	animateElements();
 	// position centrée
-gsap.set(cible, {
-	x: centerX,
-	y: centerY
+	gsap.set(cible, {
+		x: centerX,
+		y: centerY
+	});
 });
-  });
   
   // Animation GSAP
 
@@ -244,7 +244,7 @@ entries.forEach(entry => {
 	legend.style.opacity = '.9';
 	} else {
 	// Quand .lastText n'est plus visible, masquer .legend
-	legend.style.display = '0';
+	legend.style.opacity = '0';
 	}
 });
 }, { threshold: .8}); // Seuil de visibilité (80%)
